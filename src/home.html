@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Serralheria Bruno - Portões, Grades e Estruturas</title>
+    <script src="https://kit.fontawesome.com/cda8de42bd.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="main-header">
+      <div class="container">
+        <a href="#" class="logo">Serralheria Bruno</a>
+        <nav class="desktop-nav">
+          <ul>
+            <li><a href="#hero">Início</a></li>
+            <li><a href="#servicos">Serviços</a></li>
+            <li><a href="#portfolio">Portfólio</a></li>
+            <li><a href="#contato">Contato</a></li>
+          </ul>
+        </nav>
+        <div class="header-controls">
+          <button class="theme-toggle" aria-label="Alternar Modo Escuro">
+            <i class="fas fa-moon"></i>
+          </button>
+          <button class="menu-toggle" aria-label="Abrir Menu">
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
+      </div>
+    </header>
+    <nav class="mobile-nav" id="mobile-menu">
+      <ul>
+        <li><a href="#hero">Início</a></li>
+        <li><a href="#servicos">Serviços</a></li>
+        <li><a href="#portfolio">Portfólio</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+    </nav>
+    <main>
+      <section class="hero-section" id="hero">
+        <div class="container">
+          <h1>Qualidade e Segurança em Soluções Metálicas</h1>
+          <p>
+            Fabricamos portões automáticos, grades de proteção e estruturas
+            metálicas sob medida para sua casa ou empresa.
+          </p>
+          <a href="#contato" class="btn btn-primary"
+            >Solicite Seu Orçamento Grátis!</a
+          >
+        </div>
+      </section>
+      <section id="servicos" class="services-section">
+        <div class="container">
+          <h2>Nossos Serviços</h2>
+          <div class="services-grid">
+            <article class="service-card">
+              <i class="fas fa-hammer"></i>
+              <h3>Portões e Residencias</h3>
+              <p>
+                Portões de correr, basculantes e pivotantes. Automatização e
+                manutenção.
+              </p>
+            </article>
+            <article class="service-card">
+              <i class="fas fa-shield-alt"></i>
+              <h3>Grades e Proteções</h3>
+              <p>
+                Grades de Segurança para Janelas, portas e fechamentos área em
+                diversos modelos.
+              </p>
+            </article>
+            <article class="service-card">
+              <i class="fas fa-stairs"></i>
+              <h3>Corrimões e Escadas</h3>
+              <p>
+                Fabricação e instalação de corrimãos em aço carbono e inox,
+                escadas metálicas.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+      <section id="portfolio" class="portfolio-section">
+        <div class="container">
+          <h2>Nossos Trabalhos recentes</h2>
+          <div class="portfolio-grid">
+            <figure class="portfolio-item">
+              <img src="images/portfolio1.jpg" alt="Portão de correr moderno" />
+              <figcaption>Portão Deslizante</figcaption>
+            </figure>
+
+            <figure class="portfolio-item">
+              <img
+                src="images/portfolio2.jpg"
+                alt="Estrutura metálica de telhado"
+              />
+              <figcaption>Estrutura para Telhado</figcaption>
+            </figure>
+
+            <figure class="portfolio-item">
+              <img
+                src="images/portfolio3.jpg"
+                alt="Corrimão de escada em inox"
+              />
+              <figcaption>Corrimão Inox</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+      <section id="contato" class="contact-section">
+        <div class="container">
+          <h2>Fale Conosco</h2>
+          <div class="contact-content">
+            <form class="contact-form">
+              <input type="text" name="nome" placeholder="Seu Nome" required />
+              <input
+                type="email"
+                name="email"
+                placeholder="Seu E-mail"
+                required
+              />
+              <input
+                type="tel"
+                name="telefone"
+                placeholder="Telefone (WhatsApp)"
+                required
+              />
+              <textarea
+                name="mensagem"
+                placeholder="Descreva o serviço que você precisa..."
+                rows="5"
+                required
+              ></textarea>
+              <button type="submit" class="btn btn-primary">
+                Enviar Mensagem
+              </button>
+            </form>
+            <div class="contact-info">
+              <h3>Informações</h3>
+
+              <p><i class="fas fa-phone"></i> **Telefone:** (21) 9XXXX-XXXX</p>
+              <p>
+                <i class="fas fa-envelope"></i> **E-mail:**
+                contato@serralheria.com.br
+              </p>
+              <p>
+                <i class="fas fa-map-marker-alt"></i> **Endereço:** Rua [Projeto
+                Bruno Alcantara], RJ
+              </p>
+              <p>
+                <i class="fas fa-clock"></i> **Horário:** Seg. a Sex. das 8h às
+                18h
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="main-footer">
+      <div class="container">
+        <p>&copy; 2025 Serralheria Bruno. Todos os direitos reservados.</p>
+        <div class="social-links">
+          <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+          <a href="#" aria-label="Instagram"
+            ><i class="fab fa-instagram"></i
+          ></a>
+        </div>
+      </div>
+    </footer>
+    <a
+      href="https://wa.me/5521972924761"
+      target="_blank"
+      class="whatsapp-float"
+      aria-label="Fale Conosco pelo WhatsApp"
+    >
+      <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script src="script.js"></script>
+  </body>
+</html>
