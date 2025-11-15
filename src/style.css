@@ -42,7 +42,7 @@ body {
 }
 
 .btn:hover {
-  background-color: var(--cor-secundaria);
+  background-color: rgb(40, 53, 64);
 }
 /* Header e Navegação */
 
