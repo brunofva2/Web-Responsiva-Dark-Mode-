@@ -29,6 +29,7 @@ body {
   padding: 0 var(--espacamento-padrao);
 }
 
+/* --- Botões Genéricos --- */
 .btn {
   display: inline-block;
   padding: 10px 20px;
@@ -44,10 +45,11 @@ body {
 .btn:hover {
   background-color: rgb(40, 53, 64);
 }
-/* Header e Navegação */
+
+/* --- Header e Navegação --- */
 
 .main-header {
-  background-color: white;
+  background-color: var(--cor-fundo-card); /* Usando variável para dark mode */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   position: sticky;
   top: 0;
@@ -72,37 +74,103 @@ body {
   display: flex;
   list-style: none;
 }
-.desktop-nav li {
-  margin-left: 20px;
+
+/* Estilo do Item de Menu (Botão) - Foco no Sublinhado */
+.desktop-nav ul li {
+  font-size: 20px;
+  
+  /* Ajustes de layout para o sublinhado */
+  height: 2em;
+  line-height: 2em; 
+  padding: 0 10px; 
+  
+  position: relative; 
+  overflow: hidden; 
+  margin: 0.5em 10px; /* Margem ajustada */
+  cursor: pointer;
+
+  /* LINHA DE BASE FIXA */
+  border: none;
+  border-bottom: 1px solid var(--cor-texto-secundario); /* Linha sutil de base */
 }
-.desktop-nav a {
+
+/* Estilo do Link (Texto) */
+.desktop-nav ul li a {
+  width: 100%;
+  height: 100%;
   text-decoration: none;
   color: var(--cor-texto-principal);
-  transition: color 0.4s;
+  transition: color 0.4s ease; /* Transição de cor do texto */
+  position: relative;
+  z-index: 2; 
+  display: block;
+  text-align: center;
 }
 
-.desktop-nav a:hover {
-  color: var(--cor-secundaria);
+/* Efeito Hover: A cor do texto muda para primária */
+.desktop-nav ul li:hover a {
+  color: var(--cor-primaria); 
 }
 
-/* Menu mobile ps: oculto por padrão */
+/* Pseudo-elemento ::before - SUBLINHADO ANIMADO (DESTAQUE) */
+.desktop-nav ul li::before {
+  content: '';
+  position: absolute;
+  
+  /* ANCORAGEM: Fica na parte de baixo, sobre a linha fixa */
+  bottom: 0;
+  left: 0;
+  
+  /* TAMANHO: Começa invisível e tem 3px de altura */
+  width: 0; 
+  height: 3px; 
+  
+  background-color: var(--cor-primaria);
+  transition: width 0.4s ease-out; 
+  z-index: 2; /* Fica acima da borda bottom do li */
+}
 
+/* Efeito Hover: O sublinhado animado aparece */
+.desktop-nav ul li:hover::before {
+  transform: none; 
+  width: 100%; 
+}
+
+/* --- Menu Mobile e Botões de Controle --- */
+
+.header-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.theme-toggle,
 .menu-toggle {
-  display: none;
   background: none;
   border: none;
   font-size: 1.5rem;
   cursor: pointer;
   color: var(--cor-primaria);
+  transition: color 0.4s;
+}
+
+.theme-toggle:hover,
+.menu-toggle:hover {
+  color: var(--cor-secundaria);
+}
+
+.menu-toggle {
+  display: none; 
 }
 
 .mobile-nav {
   display: none;
-  background-color: #f8f8f8;
+  background-color: var(--cor-fundo-card);
   position: absolute;
   width: 100%;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   z-index: 999;
+  text-align: center;
 }
 
 .mobile-nav.active {
@@ -112,7 +180,6 @@ body {
 .mobile-nav ul {
   list-style: none;
   padding: 10px 0;
-  text-align: center;
 }
 
 .mobile-nav li {
@@ -120,28 +187,13 @@ body {
   padding: 10px 0;
 }
 
-/* Btn tema */
-.header-controls {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.theme-toggle {
-  background: none;
-  border: none;
-  font-size: 1.2rem;
-  cursor: pointer;
+.mobile-nav li a {
+  text-decoration: none;
   color: var(--cor-texto-principal);
-
-  transition: color 0.4s;
+  display: block;
 }
 
-.theme-toggle:hover {
-  color: var(--cor-primaria);
-}
-
-/* definições do dark mode */
+/* --- Dark Mode --- */
 
 .dark-theme {
   --cor-primaria: #4fa8ff;
@@ -153,41 +205,40 @@ body {
   --cor-sombra: rgba(255, 255, 255, 0.5);
 }
 
+/* Aplica variáveis do dark mode aos elementos */
 .dark-theme body {
   background-color: var(--cor-fundo);
   color: var(--cor-texto-principal);
 }
 
-.dark-theme .main-header {
+.dark-theme .main-header,
+.dark-theme .service-card,
+.dark-theme .contact-info,
+.dark-theme .portfolio-section,
+.dark-theme .main-footer,
+.dark-theme .portfolio-item figcaption,
+.dark-theme .mobile-nav,
+.dark-theme .contact-form input,
+.dark-theme .contact-form textarea {
   background-color: var(--cor-fundo-card);
+  color: var(--cor-texto-principal);
   box-shadow: 0 2px 4px var(--cor-sombra);
 }
 
-.dark-theme .service-card,
-.dark-theme .contact-info {
-  background-color: var(--cor-fundo-card);
-  box-shadow: 0 4px 8px var(--cor-sombra);
+.dark-theme .desktop-nav ul li {
+  /* No dark mode, a linha de base deve ser clara */
+  border-bottom: 1px solid var(--cor-texto-secundario);
 }
 
-.dark-theme .portfolio-section {
-  background-color: var(--cor-fundo-card);
+.dark-theme .desktop-nav ul li a {
+  color: var(--cor-texto-principal);
 }
 
-.dark-theme .portfolio-item figcaption {
-  background-color: #2c2c2c;
+.dark-theme .desktop-nav ul li:hover a {
+  color: var(--cor-primaria);
 }
 
-.dark-theme .portfolio-item:hover {
-  box-shadow: 0 8px 16px var(--cor-sombra);
-}
-
-.dark-theme .main-footer {
-  background-color: var(--cor-fundo-card);
-}
-
-/* Fim do dark mode */
-
-/* Seções Principais */
+/* --- Seções Principais --- */
 
 section {
   padding: 60px 0;
@@ -207,50 +258,73 @@ section {
   margin-bottom: 20px;
 }
 
-/* Seção de serviços (Grid) */
 
-.services-section h2 {
+
+.services-section h2,
+.portfolio-section h2 {
   text-align: center;
-  margin-bottom: 40px;
+  margin-bottom: 50px; /* Mais margem */
   color: var(--cor-primaria);
+  font-size: 2rem;
+  position: relative;
+  padding-bottom: 10px; 
+}
+
+/* Sublinhado Decorativo no Título */
+.services-section h2::after,
+.portfolio-section h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px; 
+  height: 4px; 
+  background-color: var(--cor-secundaria); 
+  border-radius: 2px;
 }
 
 .services-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 30px;
+  gap: 40px; /* Aumentado */
 }
 
 .service-card {
-  background-color: white;
+  background-color: var(--cor-fundo-card);
   padding: 30px;
   border-radius: 10px;
   text-align: center;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s;
+  /* Sombra sutil para definir a caixa */
+  box-shadow: 0 4px 8px var(--cor-sombra);
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .service-card:hover {
   transform: translateY(-5px);
+  /* Sombra mais forte + Borda de foco colorida */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2), 0 0 0 3px var(--cor-primaria);
 }
 
+/* Destaque do Ícone */
 .service-card i {
-  font-size: 3rem;
+  font-size: 3.5rem; /* Ícone maior */
   color: var(--cor-primaria);
-  margin-bottom: 15px;
+  margin-bottom: 20px; /* Mais espaço */
 }
 
-/* Portifólio */
+/* Destaque do Título do Card */
+.service-card h3 {
+    font-size: 1.4rem; 
+    color: var(--cor-texto-principal);
+    margin-bottom: 10px;
+}
+
+/* Portfólio */
 
 .portfolio-section {
-  background-color: white;
+  background-color: var(--cor-fundo-card);
   text-align: center;
-}
-
-.portfolio-section h2 {
-  text-align: center;
-  margin-bottom: 35px;
-  color: var(--cor-primaria);
 }
 
 .portfolio-grid {
@@ -260,7 +334,7 @@ section {
 }
 
 .portfolio-item {
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 8px var(--cor-sombra);
   border-radius: 5px;
   overflow: hidden;
   transition: transform 0.4s ease, box-shadow 0.4s ease;
@@ -268,7 +342,8 @@ section {
 
 .portfolio-item:hover {
   transform: translateY(-5px) scale(1.02);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  /* Borda de foco colorida */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2), 0 0 0 3px var(--cor-primaria);
 }
 
 .portfolio-item img {
@@ -282,7 +357,7 @@ section {
   padding: 10px;
   font-weight: bold;
   color: var(--cor-texto-principal);
-  background-color: #f8f8f8;
+  background-color: var(--cor-fundo);
 }
 
 /* Seção de contato */
@@ -305,9 +380,9 @@ section {
 .contact-info {
   flex: 1;
   padding: 20px;
-  background-color: white;
+  background-color: var(--cor-fundo-card);
   border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 2px 4px var(--cor-sombra);
 }
 
 .contact-info h3 {
@@ -376,8 +451,6 @@ section {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   z-index: 1000;
 }
-
-/* Poderia ter começado a fazer pensando na tela mais estreita e depois para desktop */
 
 /* MEDIA QUERIES */
 
